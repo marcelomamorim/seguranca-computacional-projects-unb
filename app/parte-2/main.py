@@ -93,4 +93,25 @@ if __name__ == '__main__':
 
 # Etapas para resolução do projeto
 # 1 - Achar o tamanho da chave
-# 2 - Descobrir a chave em si
+    # 1.1 - Print out cyphertext on a long single strip twice
+    
+    
+    # 1.2 - Slide the strip across itself until the last letter of the cyphertext matches the first letter of the
+    # second copy of the cyphertext
+    # 1.3 - Find and count caracters coincidences
+    # 1.4 - Count the number of letters between the two matching letters
+    # 1.5 - Repeat steps 1.2 and 1.3 for each letter in the cyphertext
+    # 1.6 - The most common distance between matching letters is the length of the key
+    # 1.7 - If the key is longer than 10 characters, it is unlikely that the key is longer than 10 characters
+    # 1.8 - If the key is shorter than 3 characters, it is unlikely that the key is shorter than 3 characters
+    # 1.9 - If the key is 3 characters long, it is likely that the key is "the"
+    # 1.10 - If the key is 2 characters long, it is likely that the key is "of", "to", "in", "it", "is", "be", "as", "at",
+    # "so", "we", "he", "by", "or", "on", "do", "if", "me", "my", "up", "an", "go", "no", "us", "am"
+    # 1.11 - If the key is 1 character long, it is likely that the key is "a", "i"
+    
+    # 
+    
+    
+
+
+# 2 - Descobrir a chave em si (qual a letra que foi rotacionada)
