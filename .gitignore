@@ -33,3 +33,13 @@
 *.exe
 *.out
 *.app
+
+# Python bytecode
+*.pyc
+*.pyo   
+*.pyd
+*.pyw
+*.pyz
+*.pywz
+
+app/parte-2/__pycache__/utils.cpython-310.pyc

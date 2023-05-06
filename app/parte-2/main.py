@@ -13,12 +13,6 @@
 # 1 - Achar o tamanho da chave
 # 2 - Descobrir a chave em si
 
-# Frequência das letras : https://pi.math.cornell.edu/~mec/2003-2004/cryptography/subs/frequencies.html
-# Amostra de 40 mil palavras na língua inglesa
-frequencia_letras_ingles = [0.0812, 0.0149, 0.0271, 0.0432, 0.1202, 0.0230, 0.0203, 0.0592, 0.0731, 0.001, 0.0069,
-                            0.0398, 0.0261, 0.0695, 0.0768, 0.0182, 0.0011, 0.0602, 0.0628, 0.091, 0.0288, 0.0111,
-                            0.0209, 0.0017, 0.0211, 0.0007]
-
 # https://www.gta.ufrj.br/grad/06_2/alexandre/criptoanalise.html
 frequencia_letras_portugues = [0.1463, 0.0104, 0.0388, 0.0499, 0.1256, 0.0102, 0.0130, 0.0128, 0.0618, 0.004, 0.0002,
                                0.0278, 0.0474, 0.0505, 0.1073, 0.0252, 0.012, 0.0653, 0.0781, 0.0434, 0.0463, 0.0167,
@@ -27,7 +21,6 @@ frequencia_letras_portugues = [0.1463, 0.0104, 0.0388, 0.0499, 0.1256, 0.0102, 0
 # Alfabeto na mesma ordem da tabela asc ii: https://www.asciitable.com/
 alfabeto = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
             'v', 'w', 'x', 'y', 'z']
-
 
 def cria_lista_de_caracteres_partindo_do_texto_inicial(texto_criptografado):
     texto_tratado = list(texto_criptografado)
@@ -151,11 +144,10 @@ def traduz_array_posicao(array_posicao):
 
 if __name__ == '__main__':
 
-    expected_language = input("Escolha a linguagem que imagina que esteja o texto [pt ou en] ::> ")
-    texto_escolhido = input("Escolha entre o texto 1 (1) e o texto 2 (2) [1 ou 2]::> ")
+    texto_escolhido = input("Escolha entre o texto 1 e o texto 2 [1 ou 2]::> ")
     tamanho_chave = input("Escolha o tamanho da chave :::>")
     texto_criptografado = ''
-    lista_frequencias_por_lingua = []
+    lista_frequencias_por_lingua = frequencia_letras_portugues
 
     if texto_escolhido == '1':
         with open('texto1.txt', 'r') as file:
@@ -164,17 +156,13 @@ if __name__ == '__main__':
         with open('texto2.txt', 'r') as file:
             texto_criptografado = file.read().replace('\n', '')
 
-    if expected_language == 'en':
-        lista_frequencias_por_lingua = frequencia_letras_ingles
-    else:
-        lista_frequencias_por_lingua = frequencia_letras_portugues
-
     lista_caracteres = cria_lista_de_caracteres_partindo_do_texto_inicial(texto_criptografado)
 
     grupos_vetor_bidimensional = agrupa_lista_em_n_grupos_de_acordo_com_o_tamanho_da_chave(int(tamanho_chave),
                                                                                            lista_caracteres)
 
-    dicionario_frequencia = gera_lista_frequencia_caractere(grupos_caracteres=grupos_vetor_bidimensional)
+    dicionario_frequencia = gera_lista_frequencia_caractere(
+        grupos_caracteres=grupos_vetor_bidimensional)
 
     lista_de_probabilidades = soma_produtos_frequencia_na_cifra_com_frequencia_na_lingua(
         lista_frequencias_por_lingua, dicionario_frequencia)
@@ -188,3 +176,6 @@ if __name__ == '__main__':
     print("PALAVRA CHAVE :::::::::::::::::> " + str(palavra_encontrada))
     print("####################################################################")
     print("####################################################################")
+
+
+
