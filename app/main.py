@@ -15,8 +15,12 @@ chave = "BEST"
 # https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher
 # https://intellipaat.com/blog/vigenere-cipher/
 #########################################################################
+#<<<<<<< patch-1
+#teste fork
+#=======
 #test 6may 12:31
 #test 6may 12:36
+#>>>>>>> main
 
 
 if __name__ == '__main__':
