@@ -16,13 +16,13 @@ chave = "BEST"
 # https://intellipaat.com/blog/vigenere-cipher/
 # Youtube: https://www.youtube.com/watch?v=LaWp_Kq0cKs
 #########################################################################
-#test 6may 12:31
-#test 6may 12:36
 
 
 if __name__ == '__main__':
     generated_key = generate_key_with_the_same_size_of_input(entrada, chave)
+    # CIFRANDO O TEXTO - PARTE 1 DO TRABALHO
     ciphed_text = generate_ciphed_text(entrada, generated_key)
+    # DECIFRANDO O TEXTO - PARTE 1 DO TRABALHO
     original_text = generate_original_text(ciphed_text, generated_key)
     print('GENERATING CIPHER ::::::::::::::> CIPHER -> ' + ciphed_text)
     print('DECODING TEXT ::::::::::::::> ORIGINAL -> ' + original_text)
