@@ -117,7 +117,7 @@ def gera_lista_frequencia_caractere(grupos_caracteres):
 
 
 # (caso base) multiplicar frequencia das letras do grupo n com a frequencia da lingua
-def soma_produtos_frequencia_na_cifra_com_frequencia_na_lingua_inglesa(frequencia_lingua, frequencia_txt_cifrado):
+def soma_produtos_frequencia_na_cifra_com_frequencia_na_lingua(frequencia_lingua, frequencia_txt_cifrado):
     lista_probabilidades = []
 
     for i in range(len(frequencia_txt_cifrado)):
@@ -126,33 +126,9 @@ def soma_produtos_frequencia_na_cifra_com_frequencia_na_lingua_inglesa(frequenci
         for k in range(len(frequencia_lingua)):
             grupo_i = dict(rotaciona_dicionario(-k, frequencia_txt_cifrado[i]))
             lista_valores = list(grupo_i.values())
-            print('lista valores ::>' + str(lista_valores))
             soma_dos_produtos = 0
             for t in range(len(lista_valores)):
-                soma_dos_produtos += (lista_valores[t] * frequencia_letras_ingles[t])
-
-            frequencias_i.append(soma_dos_produtos)
-            if k == len(grupo_i) - 1:
-                lista_probabilidades.append(frequencias_i)
-
-    print(lista_probabilidades)
-    return lista_probabilidades
-
-
-# (caso base) multiplicar frequencia das letras do grupo n com a frequencia da lingua
-def soma_produtos_frequencia_na_cifra_com_frequencia_na_lingua_portuguesa(frequencia_lingua, frequencia_txt_cifrado):
-    lista_probabilidades = []
-
-    for i in range(len(frequencia_txt_cifrado)):
-        # soma dos produtos das frequencias do grupo 'i'
-        frequencias_i = []
-        for k in range(len(frequencia_lingua)):
-            grupo_i = dict(rotaciona_dicionario(-k, frequencia_txt_cifrado[i]))
-            lista_valores = list(grupo_i.values())
-            print('lista valores ::>' + str(lista_valores))
-            soma_dos_produtos = 0
-            for t in range(len(lista_valores)):
-                soma_dos_produtos += (lista_valores[t] * frequencia_letras_portugues[t])
+                soma_dos_produtos += (lista_valores[t] * frequencia_lingua[t])
 
             frequencias_i.append(soma_dos_produtos)
             if k == len(grupo_i) - 1:
@@ -187,29 +163,50 @@ def encontra_maior_probabilidade_e_conta_quantas_vezes_foi_rotacionado(lista_pro
         lista_posicoes.append(indice)
         print(lista_posicoes)
 
+    return lista_posicoes
+
+
+def traduz_array_posicao(array_posicao):
+    palavra_chave = ''
+    for i in range(len(array_posicao)):
+        palavra_chave += alfabeto[array_posicao[i]]
+
+    return palavra_chave
+
 
 if __name__ == '__main__':
-    lista_caracteres = cria_lista_de_caracteres_partindo_do_texto_inicial(desafio_txt2)
 
-    print('LISTA DE CARACTERES ::::::::::::>' + str(lista_caracteres))
+    expected_language = input("Escolha a linguagem que imagina que esteja o texto [pt ou en] ::> ")
+    texto_escolhido = input("Escolha entre o texto 1 (1) e o texto 2 (2) [1 ou 2]::> ")
+    texto_criptografado = ''
+    lista_frequencias_por_lingua = []
 
-    grupos_vetor_bidimensional = agrupa_lista_em_n_grupos_de_acordo_com_o_tamanho_da_chave(8, lista_caracteres)
+    if texto_escolhido == '1':
+        texto_criptografado = desafio_txt1
+    else:
+        texto_criptografado = desafio_txt2
 
-    print('GRUPOS :::::::::::::::>' + str(grupos_vetor_bidimensional))
+    if expected_language == 'en':
+        lista_frequencias_por_lingua = frequencia_letras_ingles
+    else:
+        lista_frequencias_por_lingua = frequencia_letras_portugues
+
+    lista_caracteres = cria_lista_de_caracteres_partindo_do_texto_inicial(texto_criptografado)
+
+    grupos_vetor_bidimensional = agrupa_lista_em_n_grupos_de_acordo_com_o_tamanho_da_chave(5, lista_caracteres)
 
     dicionario_frequencia = gera_lista_frequencia_caractere(grupos_caracteres=grupos_vetor_bidimensional)
 
-    print('DICIONÁRIO DE FREQUENCIA :::::::::::::>' + str(dicionario_frequencia))
+    lista_de_probabilidades = soma_produtos_frequencia_na_cifra_com_frequencia_na_lingua(
+        lista_frequencias_por_lingua, dicionario_frequencia)
 
-    lista_de_probabilidades_ingles = soma_produtos_frequencia_na_cifra_com_frequencia_na_lingua_inglesa(
-        frequencia_letras_ingles,
-        dicionario_frequencia)
+    posicoes = encontra_maior_probabilidade_e_conta_quantas_vezes_foi_rotacionado(
+        lista_probabilidades=lista_de_probabilidades)
 
-    lista_de_probabilidades_portugues = soma_produtos_frequencia_na_cifra_com_frequencia_na_lingua_portuguesa(
-        frequencia_letras_portugues,
-        dicionario_frequencia)
+    palavra_encontrada = traduz_array_posicao(posicoes)
+    print("####################################################################")
+    print("####################################################################")
+    print("PALAVRA CHAVE :::::::::::::::::> " + str(palavra_encontrada))
+    print("####################################################################")
+    print("####################################################################")
 
-    encontra_maior_probabilidade_e_conta_quantas_vezes_foi_rotacionado(
-        lista_probabilidades=lista_de_probabilidades_ingles)
-    encontra_maior_probabilidade_e_conta_quantas_vezes_foi_rotacionado(
-        lista_probabilidades=lista_de_probabilidades_portugues)
