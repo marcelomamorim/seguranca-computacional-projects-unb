@@ -26,4 +26,12 @@ Na pasta ./app/parte-2 ::: Executar o seguinte comando
 
 > python main.py
 
+-Nessa parte deve ser escolhido o texto 1 ou 2
+Exemplo:
+Escolha entre o texto 1 e o texto 2 [1 ou 2]::> 1
+
+
+Em seguida, o tamanho da chave (não finalizamos a implementação dessa parte):
+Escolha o tamanho da chave :::> Colocar números de 0 a 10
+Por tentativa e erro, descobrimos que a chave pro texto um tem tamanho 5 e pro texto 2 tamanho 8.
 
