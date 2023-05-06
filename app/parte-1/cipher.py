@@ -2,6 +2,7 @@ from utils import *
 
 
 # Método para cifrar o texto
+# Recebe como input o texto
 def generate_ciphed_text(input_text, key):
     result_text = ""
     for index in range(len(input_text)):

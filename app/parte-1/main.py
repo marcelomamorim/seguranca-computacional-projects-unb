@@ -9,11 +9,12 @@ chave = "BEST"
 # Texto cifrado esperado: DCTXSWWVVVAMZ
 
 #########################################################################
-# Referências :::::::::::>
+# Referências Utilizadas como base para desenvolvimento do algorítmo :::::::::::>
 # https://pages.mtu.edu/~shene/NSF-4/Tutorial/VIG/Vig-Examples.html
 # https://www.geeksforgeeks.org/vigenere-cipher/
 # https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher
 # https://intellipaat.com/blog/vigenere-cipher/
+# Youtube: https://www.youtube.com/watch?v=LaWp_Kq0cKs
 #########################################################################
 #test 6may 12:31
 #test 6may 12:36
