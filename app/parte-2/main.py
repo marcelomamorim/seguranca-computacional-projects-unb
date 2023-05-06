@@ -33,7 +33,6 @@ frequencia_letras_ingles = [0.0812, 0.0149, 0.0271, 0.0432, 0.1202, 0.0230, 0.02
 alfabeto = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
             'v', 'w', 'x', 'y', 'z']
 
-
 def cria_lista_de_caracteres_partindo_do_texto_inicial(texto_criptografado):
     return list(texto_criptografado)
 
@@ -52,8 +51,20 @@ def agrupa_lista_em_n_grupos_de_acordo_com_o_tamanho_da_chave(tamanho_da_chave, 
 
 
 # encontrar frequencia de cada letra dentro do seu grupo
-def gera_lista_frequencia_caractere():
-    print('teste')
+def gera_lista_frequencia_caractere(grupos_caracteres):
+    lista_dicionarios_frequencia = []
+    for i in range(len(grupos_caracteres)):
+        dicionario_frequencia_caracteres = {}
+        for j in range(len(grupos_caracteres[i])):
+            grupo = grupos_caracteres[i]
+            caractere = grupos_caracteres[i][j]
+            total = len(grupos_caracteres[i])
+            frequencia = (grupo.count(caractere) / total)
+            dicionario_frequencia_caracteres.update({caractere: frequencia})
+            if j == len(grupos_caracteres[i]) - 1:
+                lista_dicionarios_frequencia.append(dicionario_frequencia_caracteres)
+
+    return lista_dicionarios_frequencia
 
 
 # (caso base) multiplicar frequencia das letras do grupo n com a frequencia da lingua
@@ -75,8 +86,10 @@ def encontra_maior_probabilidade_e_conta_quantas_vezes_foi_rotacionado():
 if __name__ == '__main__':
     lista_caracteres = cria_lista_de_caracteres_partindo_do_texto_inicial(desafio_txt1)
     print('LISTA DE CARACTERES ::::::::::::>' + str(lista_caracteres))
-    grupos = agrupa_lista_em_n_grupos_de_acordo_com_o_tamanho_da_chave(5, lista_caracteres)
-    print('GRUPOS :::::::::::::::>' + str(grupos))
+    grupos_vetor_bidimensional = agrupa_lista_em_n_grupos_de_acordo_com_o_tamanho_da_chave(5, lista_caracteres)
+    print('GRUPOS :::::::::::::::>' + str(grupos_vetor_bidimensional))
+    dicionario_frequencia = gera_lista_frequencia_caractere(grupos_caracteres=grupos_vetor_bidimensional)
+    print('DICIONÁRIO DE FREQUENCIA :::::::::::::>' + str(dicionario_frequencia))
 
 # Etapas para resolução do projeto
 # 1 - Achar o tamanho da chave
