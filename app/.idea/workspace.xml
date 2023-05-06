@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1a03173c-fc84-45b7-8f45-bf2092758271" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/parte-2/desafio1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/parte-2/desafio2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/parte-2/remove_accents.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/parte-2/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parte-2/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/parte-2/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="1a03173c-fc84-45b7-8f45-bf2092758271" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,7 +39,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/bits/Documents/github-repos/unb/seguranca-computacional-projects-unb/app/parte-2",
+    "last_opened_file_path": "/home/bits/Documents/github-repos/unb/seguranca-computacional-projects-unb",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -125,7 +117,7 @@
       <updated>1682300722635</updated>
       <workItem from="1682300725434" duration="7549000" />
       <workItem from="1683338440154" duration="1431000" />
-      <workItem from="1683385661784" duration="22276000" />
+      <workItem from="1683385661784" duration="22333000" />
     </task>
     <servers />
   </component>
@@ -137,6 +129,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/app$main.coverage" NAME="main Coverage Results" MODIFIED="1682307373795" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/app$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1683409563913" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/parte-2" />
+    <SUITE FILE_PATH="coverage/app$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1683409627720" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/parte-2" />
   </component>
 </project>
