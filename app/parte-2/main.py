@@ -22,6 +22,11 @@ frequencia_letras_portugues = [0.1463, 0.0104, 0.0388, 0.0499, 0.1256, 0.0102, 0
 alfabeto = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
             'v', 'w', 'x', 'y', 'z']
 
+
+# #########################################################################
+# Recebe o texto inicial e transforma numa lista de caracteres
+# Faz a filtragem de caracteres especiais
+# #########################################################################
 def cria_lista_de_caracteres_partindo_do_texto_inicial(texto_criptografado):
     texto_tratado = list(texto_criptografado)
     texto_final = [caratere for caratere in texto_tratado if caratere in alfabeto]
@@ -29,6 +34,9 @@ def cria_lista_de_caracteres_partindo_do_texto_inicial(texto_criptografado):
 
 
 # Método não finalizado (registro do desenvolvimento)
+# #########################################################################
+# Esse método teria a finalidade de encontrar o tamanho da palavra chave
+# #########################################################################
 def encontra_tamanho_da_chave(texto_como_lista):
     lista_coincidencias = []
     copia_do_input = texto_como_lista.copy()
@@ -42,6 +50,12 @@ def encontra_tamanho_da_chave(texto_como_lista):
                 lista_coincidencias.append(coincidencias)
 
 
+# #########################################################################
+# Esse método agrupa a lista de caracteres em n grupos, com n igual
+# ao tamanho da chave. Exemplo, se a chave tem 4 letras, agruparemos em
+# 4 grupos. Isso permite que criemos um agrupamento baseado na rotação
+# gerada por um determinado caractere da palavra chave.
+# #########################################################################
 def agrupa_lista_em_n_grupos_de_acordo_com_o_tamanho_da_chave(tamanho_da_chave, caracteres):
     list_of_groups = []
     for i in range(tamanho_da_chave):
@@ -54,8 +68,10 @@ def agrupa_lista_em_n_grupos_de_acordo_com_o_tamanho_da_chave(tamanho_da_chave, 
 
     return list_of_groups
 
-
-# encontrar frequencia de cada letra dentro do seu grupo
+##########################################################
+# Encontrar frequencia de cada letra dentro do seu grupo
+# Dentro do agrupamento, vamos avaliar a frequência
+##########################################################
 def gera_lista_frequencia_caractere(grupos_caracteres):
     lista_dicionarios_frequencia = []
     for i in range(len(grupos_caracteres)):
@@ -84,6 +100,10 @@ def gera_lista_frequencia_caractere(grupos_caracteres):
     return lista_dicionarios_frequencia
 
 
+##########################################################
+# Encontrar frequencia de cada letra dentro do seu grupo
+# Dentro do agrupamento, vamos avaliar a frequência
+##########################################################
 # (caso base) multiplicar frequencia das letras do grupo n com a frequencia da lingua
 def soma_produtos_frequencia_na_cifra_com_frequencia_na_lingua(frequencia_lingua, frequencia_txt_cifrado):
     lista_probabilidades = []
@@ -108,6 +128,14 @@ def soma_produtos_frequencia_na_cifra_com_frequencia_na_lingua(frequencia_lingua
 
 # (Rotacionar soma dos produtos : rotação para a esquerda) multiplicar frequencia das letras do grupo n com a
 # frequencia da lingua
+##########################################################
+# Nesse momento podemos montar um 'frame' da distribuição de frequência
+# própria da língua e compararmos com a distribuição no texto cifrado.
+# Isso permitirá que consigamos supor quantas vezes aquele grupo foi
+# rotacionado. Exemplo, se um grupo foi rotacionado 3 vezes, sabemos
+# que encontramos a letra D na palavra chave, já que cada letra representa
+# uma quantidade de vezes que vamos rotacionar o texto original (e vice-versa).
+##########################################################
 def rotaciona_dicionario(n_vezes, dicionario):
     dicionario_para_rotacionar = list(dicionario.items())
 
@@ -133,7 +161,14 @@ def encontra_maior_probabilidade_e_conta_quantas_vezes_foi_rotacionado(lista_pro
 
     return lista_posicoes
 
-
+#######################################
+# Esse método simplesmente pega o resultado
+# retornando como array de inteiros e transforma
+# numa string com a palavra chave.
+# Exemplo:
+# Se o retorno for [0,1,1,0]
+# A palavra chave será ABBA.
+#######################################
 def traduz_array_posicao(array_posicao):
     palavra_chave = ''
     for i in range(len(array_posicao)):
@@ -176,6 +211,3 @@ if __name__ == '__main__':
     print("PALAVRA CHAVE :::::::::::::::::> " + str(palavra_encontrada))
     print("####################################################################")
     print("####################################################################")
-
-
-
