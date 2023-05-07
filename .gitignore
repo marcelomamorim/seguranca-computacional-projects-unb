@@ -30,9 +30,9 @@
 *.lib
 
 # Executables
-*.exe
-*.out
-*.app
+#*.exe
+#*.out
+#*.app
 
 # Python bytecode
 *.pyc
@@ -41,5 +41,7 @@
 *.pyw
 *.pyz
 *.pywz
-
 app/parte-2/__pycache__/utils.cpython-310.pyc
+
+# Vscode workspace
+seguranca-computacional-projects-unb.code-workspace
