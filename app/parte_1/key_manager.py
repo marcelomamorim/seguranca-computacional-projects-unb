@@ -2,9 +2,9 @@ from utils import *
 
 
 # Método para gerar a chave "completa"
-def generate_key_with_the_same_size_of_input(input_text: str, key: str):
+def generate_key_with_the_same_size_of_input(input_text: str, key: str) -> str:
     """
-    Concatena a chave para preencher o comprimento até o tamanho 
+    Extende (concatena) a chave em si mesma para preencher o comprimento do tamanho do texto de entrada 
     necessário para fazer todos os shifts do input_text
 
     Args:
@@ -12,9 +12,9 @@ def generate_key_with_the_same_size_of_input(input_text: str, key: str):
         key (str): chave conhecida/determinada
 
     Returns:
-        str: shifts a serem executados a cada caractere (senha concatenada)
+        str: senha extendida (concatenada)
     """    
-    if does_cipher_key_has_the_same_size_of_input_text(input_text, key):
+    if does_cypher_key_has_the_same_size_of_input_text(input_text, key):
         return key
     else:
         while True:

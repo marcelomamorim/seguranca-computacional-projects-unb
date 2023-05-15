@@ -41,7 +41,7 @@
 *.pyw
 *.pyz
 *.pywz
-app/parte-2/__pycache__/utils.cpython-310.pyc
+app/parte_2/__pycache__/utils.cpython-310.pyc
 
 # Vscode workspace
 seguranca-computacional-projects-unb.code-workspace

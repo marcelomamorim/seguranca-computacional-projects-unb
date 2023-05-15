@@ -185,10 +185,10 @@ if __name__ == '__main__':
     lista_frequencias_por_lingua = frequencia_letras_portugues
 
     if texto_escolhido == '1':
-        with open('texto1.txt', 'r') as file:
+        with open('app/parte_2/txts/desafio1.txt', 'r') as file:
             texto_criptografado = file.read().replace('\n', '')
     else:
-        with open('texto2.txt', 'r') as file:
+        with open('app/parte_2/txts/desafio2.txt', 'r') as file:
             texto_criptografado = file.read().replace('\n', '')
 
     lista_caracteres = cria_lista_de_caracteres_partindo_do_texto_inicial(texto_criptografado)
