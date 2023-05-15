@@ -56,12 +56,12 @@ def findKeyLength(cyphertext=None):
     Ngram = 1
     
     #C = int(len(shiftsList)*0.01)
-    C = 100
+    C = 50
     
     print(f"len(shiftsList): {len(shiftsList)}")
     for shift in range(1,C):
         coincidences=0
-        for j in range(0,len(shiftsList)):
+        for j in range(1,int(len(shiftsList)/3),3):
             #print(shiftsList[0][j],end=' -> ')
             #print(shiftsList[shift][j])
             
