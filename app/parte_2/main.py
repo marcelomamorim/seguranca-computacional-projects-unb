@@ -14,6 +14,9 @@
 # 2 - Descobrir a chave em si
 
 # https://www.gta.ufrj.br/grad/06_2/alexandre/criptoanalise.html
+
+from findKeyLength import *
+
 frequencia_letras_portugues = [0.1463, 0.0104, 0.0388, 0.0499, 0.1256, 0.0102, 0.0130, 0.0128, 0.0618, 0.004, 0.0002,
                                0.0278, 0.0474, 0.0505, 0.1073, 0.0252, 0.012, 0.0653, 0.0781, 0.0434, 0.0463, 0.0167,
                                0.0001, 0.0021, 0.0001, 0.0047]
@@ -179,8 +182,11 @@ def traduz_array_posicao(array_posicao):
 
 if __name__ == '__main__':
 
+    
+    
+    
     texto_escolhido = input("Escolha entre o texto 1 e o texto 2 [1 ou 2]::> ")
-    tamanho_chave = input("Escolha o tamanho da chave :::>")
+    #tamanho_chave = input("Escolha o tamanho da chave :::>")
     texto_criptografado = ''
     lista_frequencias_por_lingua = frequencia_letras_portugues
 
@@ -190,7 +196,9 @@ if __name__ == '__main__':
     else:
         with open('app/parte_2/txts/desafio2.txt', 'r') as file:
             texto_criptografado = file.read().replace('\n', '')
-
+    
+    findKeyLength(texto_criptografado)
+    tamanho_chave = input("Escolha o tamanho da chave :::>")
     lista_caracteres = cria_lista_de_caracteres_partindo_do_texto_inicial(texto_criptografado)
 
     grupos_vetor_bidimensional = agrupa_lista_em_n_grupos_de_acordo_com_o_tamanho_da_chave(int(tamanho_chave),

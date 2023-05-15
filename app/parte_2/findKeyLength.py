@@ -10,7 +10,7 @@ from utils import remove_combining_fluent, remove_caracteres_especiais_e_espacos
 def findKeyLength(cyphertext=None):
     
     if cyphertext is None:        
-        with open('./app/parte_2/txts/ritaLee.txt', 'r') as file:
+        with open('./app/parte_2/txts/ritaLee_ptbr.txt', 'r') as file:
             cyphertext = file.read().replace('\n', '')
     
     
@@ -54,8 +54,12 @@ def findKeyLength(cyphertext=None):
     
     
     Ngram = 1
+    
+    #C = int(len(shiftsList)*0.01)
+    C = 100
+    
     print(f"len(shiftsList): {len(shiftsList)}")
-    for shift in range(1,int(len(shiftsList)/80)):
+    for shift in range(1,C):
         coincidences=0
         for j in range(0,len(shiftsList)):
             #print(shiftsList[0][j],end=' -> ')

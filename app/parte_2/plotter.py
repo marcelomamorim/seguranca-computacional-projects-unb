@@ -3,9 +3,9 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-def plotter(offsets, data, threshold=1):
+def plotter(offsets, data, threshold=100):
 
-    offset=10
+    offset=len(offsets)
 
     # this sets a threshold above which a point is labelled
     threshold=int(1.2*threshold/offset)
@@ -35,7 +35,7 @@ if __name__ == "__main__":
     print("This is a module, not a program. Please import it.")     
     # This is a module, not a program. Please import it.
     #test:
-    plotter([1,2,3,4,5,6,7,8,9,10], [1,2,3,4,5,6,7,8,9,10])
+    plotter([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15], [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15])
     
     
     
